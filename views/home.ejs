@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+
+
+    <body onresize="myFunction()">
+
+        <!-- <% const title = "Home" %> -->
+        <%- include('./partials/nav.ejs') %>
+        <div class="slid">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <!-- <div class="numbertext">1 / 3</div> -->
+                    <img src="https://images.unsplash.com/photo-1538991383142-36c4edeaffde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                        style="width:100%" height="400px">
+                    <div class="text">Caption Text</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <!-- <div class="numbertext">2 / 3</div> -->
+                    <img src="https://images.unsplash.com/photo-1546188994-07c34f6e5e1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnV0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                        style="width:100%" height="400px">
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <!-- <div class="numbertext">3 / 3</div> -->
+                    <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlld3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                        style="width:100%" height="400px">
+                    <div class="text">Caption Three</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+            <br>
+
+            <div class="dots" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+            <h1> Hello World</h1>
+        </div>
+        
+        <%- include('./partials/footer.ejs') %>
+    </body>
+
+    <script>
+        
+        var slideIndex = 1;
+        document.getElementsByClassName("slid").width = screen.width
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+
+        }
+
+    </script>
+
+</html>
