@@ -15,3 +15,7 @@ console.log("Listenign");
 app.get('/' , (req,res) => {
     res.render('home' , {titles: 'Home'});
 })
+
+app.get('/data', (req, res) => {
+    res.render('data', { titles: 'Data' });
+})
