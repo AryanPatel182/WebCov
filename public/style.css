@@ -1,9 +1,9 @@
 body{
     margin: 0 ;
-    
     padding: 0;
+    /* box-sizing: border-box; */
     font-family: 'Sarabun', sans-serif;   
-    /* background-color: rgb(236, 246, 255); */
+    background-color: rgb(255, 255, 255);
     
 }
 
@@ -16,11 +16,11 @@ li{
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
+    position: static;
     top: 0;
     background-color: rgb(87, 134, 139);
     max-height: 82px;
-    
+    flex-wrap: wrap;
 }
 
 li{
@@ -49,7 +49,7 @@ a:hover{
 
 .slid{
   position: absolute;
-  background-color: rgb(153, 197, 238);
+  background-color: rgb(226, 241, 255);
   margin-top: 0px;
   width: 100%;
   height: 500px;
@@ -201,14 +201,19 @@ footer{
 
 .graph-container{  
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-gap: 5px 10px;
+  grid-template-columns: 1fr 2fr;
+  
   /* background-color: #2196F3; */
   padding: 10px;
 }
-.grpah-item{
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+.graph-item{
+  /* background-color: rgba(255, 0, 0, 0.8); */
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 20px;
+  overflow: hidden;
   font-size: 30px;
   text-align: center;
 }
