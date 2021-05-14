@@ -5,41 +5,18 @@
     <body>
         <%- include('./partials/nav.ejs') %>
 
-            <!-- <canvas id="myChart" width="400" height="100"></canvas> -->
-
-            <!-- <div class="graph-container">
-                <div class="graph-item">
-                    <canvas onresize="change()" id="myChart" width="400" height="100"></canvas>
-                </div>
-                <div class="graph-item">
-                    <p>Hello This is a graph of globalTemps</p>
-                    <!-- <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro recusandae magnam at aperiam? Eligendi inventore nobis itaque ipsum beatae cumque explicabo ratione nulla molestiae repellat. Ipsum fuga nemo odio molestiae.</h5> -->
-            <!-- <canvas id="myChart" width="400" height="100"></canvas> -->
-            <!-- </div>
-                <div class="graph-item">
-                    3
-                    <!-- <canvas id="myChart" width="400" height="100"></canvas> -->
-            <!-- </div> -->
-            <!-- <div class="graph-item"> -->
-            <!-- 4 -->
-            <!-- <canvas id="myChart" width="400" height="100"></canvas> -->
-            <!-- </div> -->
-            <!-- </div>  -->
-
-
-
             <div class="graph-container">
-                <div id="red"  class="graph-item" style="position: relative; height:15vh">
-                    <h3 style="color: red;">COVID cases INDIA</h3>                    
-                    <h3 id="up1" style="color: red;"></h3>                    
+                <div id="red" class="graph-item" style="position: relative; height:15vh">
+                    <h3 style="color: red;">COVID cases INDIA</h3>
+                    <h3 id="up1" style="color: red;"></h3>
                 </div>
-                <div  id="green" class="graph-item" style="position: relative; height:15vh">
-                    <h3 style="color: rgb(28, 143, 5);">COVID recovered cases</h3>                    
-                    <h3 id="up2" style="color: rgb(28, 143, 5);"></h3>                    
+                <div id="green" class="graph-item" style="position: relative; height:15vh">
+                    <h3 style="color: rgb(28, 143, 5);">COVID recovered cases</h3>
+                    <h3 id="up2" style="color: rgb(28, 143, 5);"></h3>
                 </div>
                 <div id="black" class="graph-item" style="position: relative; height:15vh">
-                    <h3>COVID deceases cases</h3>                    
-                    <h3 id="up3"></h3>                    
+                    <h3>COVID deceases cases</h3>
+                    <h3 id="up3"></h3>
                 </div>
                 <!-- <h2 class="graph-item">COVID cases INDIA</h2>
                 <h2 class="graph-item">COVID cases INDIA</h2> -->
@@ -61,10 +38,10 @@
                 </div>
                 <div class="graph-item" style="position: relative; height:50vh">
                     <canvas id="myChartPi"></canvas>
-                </div>                                
-                <div id="graph-item3"class="graph-item" style="position: relative; height:50vh">
+                </div>
+                <div id="graph-item3" class="graph-item" style="position: relative; height:50vh">
                     <canvas id="myChart4"></canvas>
-                </div>                
+                </div>
             </div>
 
             <%- include('./partials/footer.ejs') %>
@@ -83,7 +60,7 @@
         setup3();
         setup4();
         setupPi();
-        
+
         async function setup() {
             const ctx = document.getElementById('myChart').getContext('2d');
             const CovCaseIN = await getData();
@@ -149,7 +126,7 @@
                 data: {
                     labels: CovCaseIN.days,
                     datasets: [
-                        
+
                         {
                             label: 'COVID recovered INDIA',
                             data: CovCaseIN.recovered,
@@ -198,7 +175,7 @@
                 type: 'line',
                 data: {
                     labels: CovCaseIN.days,
-                    datasets: [                                          
+                    datasets: [
                         {
                             label: 'COVID deceased INDIA',
                             data: CovCaseIN.deceased,
@@ -295,75 +272,75 @@
 
 
 
-    async function setup3() {
-        const ctx3 = document.getElementById('myChart3').getContext('2d');
-        const CovCaseIN3 = await getData3();
+        async function setup3() {
+            const ctx3 = document.getElementById('myChart3').getContext('2d');
+            const CovCaseIN3 = await getData3();
 
-        const myChart = new Chart(ctx3, {
-            type: 'line',
-            data: {
-                labels: CovCaseIN3.date,
-                datasets: [
-                    {
-                        label: 'Vaccine in INDIA',
-                        data: CovCaseIN3.doses,
-                        fill: true,
-                        // borderColor: 'rgba(255, 99, 132, 1)',
-                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                        borderWidth: 1
+            const myChart = new Chart(ctx3, {
+                type: 'line',
+                data: {
+                    labels: CovCaseIN3.date,
+                    datasets: [
+                        {
+                            label: 'Vaccine in INDIA',
+                            data: CovCaseIN3.doses,
+                            fill: true,
+                            // borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }]
                     }
-                ]
-            },
-            options: {
-                maintainAspectRatio: false,
-                scales: {
-                    xAxes: [{
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                    yAxes: [{
-                        gridLines: {
-                            display: false
-                        }
-                    }]
                 }
+            });
+        }
+
+        async function getData3() {
+            // const response = await fetch('ZonAnn.Ts+dSST.csv');
+            const response = await fetch('http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv');
+            const data = await response.text();
+            const date = [];
+            const doses = [];
+            const rows = data.split('\n');
+            const n = rows.length;
+            // console.log(n);
+
+
+            let cols = rows[0].split(',');
+            // console.log(cols.length);
+            // console.log(cols.length);
+            for (let i = 1; i < cols.length; i = i + 2) {
+                date.push(cols[i]);
             }
-        });
-    }
+            cols = rows[n - 1].split(',');
+            // console.log(cols.length);
+            // console.log(cols.length);
+            for (let i = 1; i < cols.length; i = i + 2) {
+                doses.push(cols[i]);
+            }
+            //  activecases.push(cols[cols.length-1]);
 
-    async function getData3() {
-        // const response = await fetch('ZonAnn.Ts+dSST.csv');
-        const response = await fetch('http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv');
-        const data = await response.text();
-        const date = [];
-        const doses = [];
-        const rows = data.split('\n');
-        const n = rows.length;
-        console.log(n);
-
-
-        let cols = rows[0].split(',');
-        console.log(cols.length);
-        // console.log(cols.length);
-        for (let i = 1; i < cols.length; i = i + 2) {
-            date.push(cols[i]);
-        }
-        cols = rows[n - 1].split(',');
-        console.log(cols.length);
-        // console.log(cols.length);
-        for (let i = 1; i < cols.length; i = i + 2) {
-            doses.push(cols[i]);
-        }
-        //  activecases.push(cols[cols.length-1]);
-
-        return { date, doses };
-    };
+            return { date, doses };
+        };
 
 
 
 
-    async function setup4() {
+        async function setup4() {
             const ctx4 = document.getElementById('myChart4').getContext('2d');
             const CovCaseIN4 = await getData4();
 
@@ -410,7 +387,7 @@
 
 
 
-    async function setupPi() {
+        async function setupPi() {
             const ctxPi = document.getElementById('myChartPi').getContext('2d');
             const CovCaseINPi = await getDataPi();
 
@@ -457,13 +434,11 @@
 
             // });
 
-            for(let i=0;i<rows.length;i++)
-            {
-                const cols = rows[i].split(',');                
-                if(cols[1]!= "India" || cols[2]==" ")
-                {                               
-                    console.log(cols);
-                    male.push(rows[i-2].split(',')[7]);
+            for (let i = 0; i < rows.length; i++) {
+                const cols = rows[i].split(',');
+                if (cols[1] != "India" || cols[2] == " ") {
+                    // console.log(cols);
+                    male.push(rows[i - 2].split(',')[7]);
                     female.push(rows[i - 2].split(',')[8]);
                     other.push(rows[i - 2].split(',')[9]);
                     break;
