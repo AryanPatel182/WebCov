@@ -19,3 +19,15 @@ app.get('/' , (req,res) => {
 app.get('/data', (req, res) => {
     res.render('data', { titles: 'Data' });
 })
+
+app.get('/help', (req, res) => {
+    res.render('help', { titles: 'Help' });
+})
+
+app.get('/about', (req, res) => {
+    res.render('about', { titles: 'About' });
+})
+
+app.get('/resources', (req, res) => {
+    res.render('resources', { titles: 'Resources' });
+})

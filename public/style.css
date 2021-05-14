@@ -3,7 +3,14 @@ body{
     padding: 0;
     /* box-sizing: border-box; */
     font-family: 'Sarabun', sans-serif;   
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
+    /* background-color:rgb(245, 245, 245); */
+    overflow-x: hidden;
+    background-color: #f4f6f9;
+    /* background-image: url("https://www.teahub.io/photos/full/125-1253801_website-background.png"); */
+    /* background-image: url("https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Simple-White-Gradient-Background-Image.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover; */
     
 }
 
@@ -18,15 +25,20 @@ li{
     justify-content: center;
     position: static;
     top: 0;
-    background-color: rgb(87, 134, 139);
-    max-height: 82px;
+    width: 100%;
+    /* background-color: rgb(175, 175, 175); */
+    background-color: transparent;
+    z-index: 1;
     flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 536px) {
+  .navbar {width: 560px;}
 }
 
 li{
   font-size: 24px;
   transition: transform 1s;
-  
 }
 li:hover{
     /* font-size: 2px; */
@@ -36,12 +48,16 @@ li:hover{
 }
 a{
     text-decoration: none; 
-    color: white;
+    color: rgb(0, 0, 0);
 }
-a:hover{
-    color:rgb(0, 0, 0);
+a:active, a:hover
+{
+   color: rgba(253, 9, 9, 0.904); 
 }
- 
+/* li:active, a:hover{
+    color:rgb(236, 54, 54);
+}
+  */
 #logo{
     margin: 2px 70px 7px 0 ;
     padding: 2px;
@@ -49,12 +65,21 @@ a:hover{
 
 .slid{
   position: absolute;
-  background-color: rgb(226, 241, 255);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(255, 255, 255);
   margin-top: 0px;
   width: 100%;
   height: 500px;
-}
+  /* background-image: url("https://www.teahub.io/photos/full/125-1253801_website-background.png"); */
+  /* background-image: url("https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Simple-White-Gradient-Background-Image.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover; */
 
+}
+@media only screen and (max-width: 536px) {
+  .slid {width: 560px;}
+}
 
 .mySlides {display: none}
 
@@ -62,20 +87,46 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  background-color: aquamarine;
+  /* background-color: rgb(235, 240, 238); */
   max-width: 1404px;
   position: relative;
   margin: auto;  
   margin-top: 37px;
   transition: transform 1s;
-  
-  /* width: 1404px; */  
+  /* border-radius: 10px; */
+  width: 90%;  
 }
 
 .slideshow-container:hover{
     transform: translateY(2px);
     transform: scale(1.02);    
     border: 2px solid rgb(0, 0, 0);           
+}
+
+.slideshow-text{
+  max-width: 1404px;
+  position: relative;
+  margin: auto;  
+  transition: transform 1s;
+  border-radius: 10px;
+  width: 90%;
+  
+  /* border: 2px solid; */
+}
+button {
+    width: 130px;
+    padding: 10px;
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #095484;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+ button:hover{
+  background-color: #0666a3;
 }
 
 /* Next & previous buttons */
@@ -167,19 +218,26 @@ img {vertical-align: middle;}
 }
 
 .highlight{
-  background-color: rgb(87, 134, 139);
+  /* background-color: rgb(87, 134, 139); */
   margin-top: 13cm;
   text-align: center;
+  
+  background-color: transparent;
+}
+@media only screen and (max-width: 536px) {
+  .highlight {width: 560px;}
 }
 
 .highlight h1{
   padding: 13px;
+  color: #ff0000;
+  /* background-color: rgb(255, 255, 255); */
 }
 
 .content{
-    position: relative;
-    
+    position: relative;  
 }
+
 
 .dots{
   position: absoute;
@@ -197,25 +255,98 @@ footer{
   height: 40px;
   width: 100%;
 }
+@media only screen and (max-width: 536px) {
+  footer{width: 560px;}
+}
 
 
 .graph-container{  
+  margin-top: 20px;
   display: grid;
-  grid-gap: 5px 10px;
-  grid-template-columns: 1fr 2fr;
-  
+  grid-gap: 25px 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* border: 2px solid; */
   /* background-color: #2196F3; */
   padding: 10px;
 }
+@media only screen and (max-width: 536px) {
+  .graph-container{width: 536px; grid-template-columns: 1fr ;}
+  
+}
+
 .graph-item{
-  /* background-color: rgba(255, 0, 0, 0.8); */
-  height: 100%;
-  width: 100%;
+  background-color: rgb(255, 255, 255);
+  /* background-color: #fff; */
+  border-radius: 10px;
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  width: 90%;
   padding: 20px;
   overflow: hidden;
-  font-size: 30px;
+  /* font-size: 15px; */
   text-align: center;
+  margin: auto;
+  transition: transform 1s;
+}
+.graph-item:hover{
+  transform: scale(1.02);
+}
+@media only screen and (max-width: 536px) {
+  .graph-item{width: 70%;grid-column-start: 1 ; grid-column-start: 1;  }
+}
+
+#graph-item1, #graph-item3{
+  grid-column-start:1 ;
+  grid-column-end: 4;
+}
+#graph-item2{
+  grid-column-start:1 ;
+  grid-column-end: 3;
+}
+
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 13cm;
+  margin-bottom: 12cm;
+  width: 90%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #000000;
+    color: white;
+}
+
+
+#red:hover{
+  background-color: #ffc5d0;
+  transform: scale(1.02);
+}
+#green:hover{
+  background-color: #e4f4e8;
+  transform: scale(1.02);
+}
+#black:hover{
+  background-color: #e5e6e8;
+  transform: scale(1.02);
 }
 html{
     scroll-behavior: smooth;

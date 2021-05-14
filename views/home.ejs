@@ -36,7 +36,12 @@
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                 </div>
-                <br>
+                <div class="slideshow-text">
+                    <h1>Covid Tracker</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim recusandae ipsam consequuntur cupiditate suscipit eum, fugiat voluptatibus laboriosam! Facere amet recusandae necessitatibus aut error alias eius iste qui cum doloribus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem inventore, assumenda sint eaque quae est. Exercitationem sit, aut quae quod nobis ipsum modi, tempora magnam porro accusamus debitis fugiat eum.</p>
+
+                    <button><a style="color: white;" href="/help">Help</a></button>
+                </div>
 
                 <div class="dots" style="text-align:center">
                     <span class="dot" onclick="currentSlide(1)"></span>
@@ -44,12 +49,47 @@
                     <span class="dot" onclick="currentSlide(3)"></span>
                 </div>
             </div>
-
+<!-- 
             <div class="highlight">
                 <h1><a href="#">Ask help if u need..</a></h1>
-            </div>
+            </div> -->
 
-
+            <table id="customers">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Contact</th>
+                    <th>State</th>
+                    <th>Discription</th>
+            
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    <td>Germany</td>
+                    <td>Germany</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Berglunds snabbköp</td>
+                    <td>Christina Berglund</td>
+                    <td>Sweden</td>
+                    <td>Sweden</td>
+                    <td>Sweden</td>
+                    <td>Sweden</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                    <td>Mexico</td>
+                    <td>Mexico</td>
+                    <td>Mexico</td>
+                </tr>
+                
+            </table>
 
             <%- include('./partials/footer.ejs') %>
     </body>
