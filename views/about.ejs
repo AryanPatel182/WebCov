@@ -1,23 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs') %>
+    <style>
+        .follow {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-top: -4cm;
+        }
+
+        .follow h1 {
+            font-size: 25px;
+            font-family: sans-serif;
+            font-weight: normal;
+            letter-spacing: 4px;
+            padding: 200px 0 100px;
+            color: #555;
+            text-align: center;
+
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .follow a {
+            display: flex;
+            background: #e3edf7;
+            height: 75px;
+            width: 75px;
+            margin: 0 15px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+        }
+
+        .follow a i {
+            font-size: 35px;
+            color: #777;
+            transition: transform 0.5s;
+        }
+
+        .follow a:hover {
+            box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.01);
+
+            transform: translateY(2px);
+        }
+
+        .follow a:hover i {
+            transform: scale(0.90);
+        }
+
+        .follow a:hover .fa-facebook {
+            color: #3b5998;
+        }
+
+        .follow a:hover .fa-whatsapp {
+            color: #33e033;
+        }
+
+        .follow a:hover .fa-twitter {
+            color: #00acee;
+        }
+
+        .follow a:hover .fa-instagram {
+            color: #f14843;
+        }
+
+        .follow a:hover .fa-youtube {
+            color: #f00;
+        }
+    </style>
 
     <body>
         <%- include('./partials/nav.ejs') %>
+            <div class="slid">
+                <div class="slideshow-container">
 
-        <div class="graph-container">
-            <div class="graph-item" style="position: relative; height:15vh; width: 60% ;grid-column-start: 1; grid-column-end: 4;">
-                <h3>DEVELOPER1</h3>                
-            </div>
-            <div class="graph-item" style="position: relative; height:15vh;width: 60% ; grid-column-start: 1; grid-column-end: 4;">
-                <h3>DEVELOPER2</h3>                
-            </div>
-            <div class="graph-item" style="position: relative; height:15vh;width: 60% ; grid-column-start: 1; grid-column-end: 4;">
-                <h3>DEVELOPER3</h3>                
-            </div>
-        </div>
+                    <div class="mySlides fade">
+                        <img src="https://aathifrupay.com/Content/HomeContentV2/images/about-us.png" style="width:80%"
+                            height="400px">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="https://ponduploads.com/datatobiz2/wp-content/uploads/2020/10/Digital-Marketing-Isometric.png"
+                            style="width:80%" height="400px">
+                    </div>
 
-        <%- include('./partials/footer.ejs') %>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div class="slideshow-text">
+                    <h1>Team</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim recusandae ipsam consequuntur
+                        cupiditate suscipit eum, fugiat voluptatibus laboriosam! Facere amet recusandae necessitatibus
+                        aut error alias eius iste qui cum doloribus?Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Dolorem inventore, assumenda sint eaque quae est. Exercitationem sit, aut quae quod nobis
+                        ipsum modi, tempora magnam porro accusamus debitis fugiat eum.</p>
+
+                    <button><a style="color: white;" href="/home/help">Help</a></button>
+                </div>
+
+                <div class="dots" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <!-- <span class="dot" onclick="currentSlide(3)"></span> -->
+                </div>
+            </div>
+
+            <div class="follow">
+
+                <h1>FOLLOW US ON SOCIAL MEDIA</h1>
+                <div class="social-media">
+                    <!-- <a href="#" target=”_blank”><i class="fab fa-facebook"></i></a> -->
+                    <a href="https://twitter.com/AryanPa09191003?s=09" target=”_blank”><i
+                            class="fab fa-twitter"></i></a>
+                    <!-- <a href="#" target=”_blank”><i class="fab fa-whatsapp"></i></a> -->
+                    <a href="https://www.instagram.com/aryan_patel182" target=”_blank”><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCVOXD948RoxYpcHPBddXw3A" target=”_blank”><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+
+            </div>
+            <%- include('./partials/footer.ejs') %>
     </body>
+    <script>
+        var slideIndex = 1;
+        document.getElementsByClassName("slid").width = screen.width
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        
+    </Script>
 
 </html>

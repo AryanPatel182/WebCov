@@ -15,7 +15,7 @@
                     <h3 id="up2" style="color: rgb(28, 143, 5);"></h3>
                 </div>
                 <div id="black" class="graph-item" style="position: relative; height:15vh">
-                    <h3>COVID deceases cases</h3>
+                    <h3>COVID deceased cases</h3>
                     <h3 id="up3"></h3>
                 </div>
                 <!-- <h2 class="graph-item">COVID cases INDIA</h2>
@@ -76,9 +76,13 @@
                             label: 'COVID cases INDIA',
                             data: CovCaseIN.cases,
                             fill: true,
-                            // borderColor: 'rgba(255, 99, 132, 1)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
                             backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                            borderWidth: 1
+                            borderWidth: 1,
+                            borderWidth: 1,
+                            pointStyle: 'dash',
+                            spanGaps: true,
+                            steppedLine: true
                         },
                         // {
                         //     label: 'COVID recovered INDIA',
@@ -123,17 +127,22 @@
 
             const myChartA = new Chart(ctxA, {
                 type: 'line',
+
                 data: {
                     labels: CovCaseIN.days,
+
                     datasets: [
 
                         {
                             label: 'COVID recovered INDIA',
                             data: CovCaseIN.recovered,
                             fill: true,
-                            // borderColor: 'rgba(255, 99, 132, 1)',
+                            borderColor: 'rgba(60, 179, 113, 1)',
                             backgroundColor: 'rgba(60, 179, 113, 0.5)',
-                            borderWidth: 1
+                            borderWidth: 1,
+                            pointStyle: 'dash',
+                            spanGaps: true,
+                            steppedLine: true
                         },
                         // {
                         //     label: 'COVID deceased INDIA',
@@ -143,12 +152,15 @@
                         //     backgroundColor: 'rgba(0, 0,255, 0.5)',
                         //     borderWidth: 1
                         // },
+
                     ]
                 },
                 options: {
                     maintainAspectRatio: false,
+
                     scales: {
                         xAxes: [{
+
                             gridLines: {
                                 display: false
                             }
@@ -173,6 +185,7 @@
 
             const myChartB = new Chart(ctxB, {
                 type: 'line',
+                pointStyle: 'dash',
                 data: {
                     labels: CovCaseIN.days,
                     datasets: [
@@ -180,9 +193,13 @@
                             label: 'COVID deceased INDIA',
                             data: CovCaseIN.deceased,
                             fill: true,
-                            // borderColor: 'rgba(255, 99, 132, 1)',
+                            borderColor: 'rgba(0, 0,0, 1)',
                             backgroundColor: 'rgba(0, 0,0, 0.5)',
-                            borderWidth: 1
+                            borderWidth: 1,
+                            pointStyle: 'dash',
+                            spanGaps: true,
+                            steppedLine: true
+
                         },
                     ]
                 },
@@ -447,6 +464,7 @@
             }
             return { male, female, other };
         }
+
     </script>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Help form</title>
     <link rel="stylesheet" href="/style.css">
@@ -53,10 +54,10 @@
             align-items: center;
             height: inherit;
             padding: 3px;
+            margin-top: 12px;
         }
 
         form {
-
             padding: 20px;
             background: #fff;
             box-shadow: 0 2px 5px #ccc;
@@ -212,18 +213,18 @@
 
 <body>
     <%- include('./partials/nav.ejs') %>
-    <div class="testbox">        
-        <form action="/home" method="POST">
-            <h1>Details</h1>
-            <h4>Type of help u need.<span>*</span></h4>
-            <select id="helptype" name="helptype" required>
-                <option value=""></option>
-                <option value="Hospital bad">Hospital bad</option>
-                <option value="Ventilator">Ventilator</option>
-                <option value="Remdesivir">Remdesivir</option>
-                <option value="Tocilizumab">Tocilizumab</option>
-            </select>
-            <!-- <h4>Feedback/Enquiry on<span>*</span></h4>
+        <div class="testbox">
+            <form action="/home" method="POST">
+                <h1>Details</h1>
+                <h4>Type of help u need.<span>*</span></h4>
+                <select id="helptype" name="helptype" required>
+                    <option value=""></option>
+                    <option value="Hospital bad">Hospital bad</option>
+                    <option value="Ventilator">Ventilator</option>
+                    <option value="Remdesivir">Remdesivir</option>
+                    <option value="Tocilizumab">Tocilizumab</option>
+                </select>
+                <!-- <h4>Feedback/Enquiry on<span>*</span></h4>
             <select>
                 <option value=""></option>
                 <option value="1">Credit and Debit Cards</option>
@@ -232,35 +233,39 @@
                 <option value="4">iBanking</option>
                 <option value="5">Treasures</option>
             </select> -->
-            <h4>Name<span>*</span></h4>
-            <div class="title-block">
-                <select id="mrms" name="mrms" required>
-                    <option value="title"> </option>
-                    <option value="ms">Ms</option>
-                    <option value="miss">Miss</option>
-                    <option value="mrs">Mrs</option>
-                    <option value="mr">Mr</option>
-                </select>
-                <input id="name1" class="name" type="text" name="name1" placeholder="First" required />
-                <input id="name2" class="name" type="text" name="name2" placeholder="Last" required />
-            </div>
-            <h4>Email Address</h4>
-            <input id="email" type="text" name="email" />
-            <h4>Contact Number<span>*</span></h4>
-            <input id="contact" type="text" name="contact" required/>
-            <h4>State</h4>
-            <input id="state" type="text" name="state" />
-            <h4>District</h4>
-            <input id="district" type="text" name="district" />
-            <h4>Description</h4>
-            <p class="small">Please do not indicate your account or credit card number and banking instruction in your
-                comments.</small>
-                <textarea id="description" rows="5" name="description"></textarea>
-            <div class="btn-block">
-                <button type="submit" href="/">Submit</button>
-                <button type="reset" >Reset</button>                            
-            </div>
-        </form>    
-    </div>   
+                <h4>Name<span>*</span></h4>
+                <div class="title-block">
+                    <select id="mrms" name="mrms" required>
+                        <option value="title"> </option>
+                        <option value="ms">Ms</option>
+                        <option value="miss">Miss</option>
+                        <option value="mrs">Mrs</option>
+                        <option value="mr">Mr</option>
+                    </select>
+                    <input id="name1" class="name" type="text" name="name1" placeholder="First" required />
+                    <input id="name2" class="name" type="text" name="name2" placeholder="Last" required />
+                </div>
+                <h4>Email Address</h4>
+                <input id="email" type="email" name="email" />
+                <h4>Contact Number<span>*</span></h4>
+                <input id="contact" type="text" name="contact" required />
+                <h4>State</h4>
+                <input id="state" type="text" name="state" />
+                <h4>District</h4>
+                <input id="district" type="text" name="district" />
+                <h4>Description</h4>
+                <p class="small">Please do not indicate your account or credit card number and banking instruction in
+                    your
+                    comments.</small>
+                    <textarea id="description" rows="5" name="description"></textarea>
+                <div class="btn-block">
+                    <button type="submit" href="/">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
 </body>
+
+
+
 </html>
