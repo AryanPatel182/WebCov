@@ -316,17 +316,26 @@ footer{
   transform: scale(1.02);
   box-shadow: 0 2px 5px #ccc;
 }
+
 @media only screen and (max-width: 750px) {
-  .graph-item{width: 80%;grid-column-start: 1 ; grid-column-end: 4;  }
+  .graph-item{width: 80%;grid-column-start: 1 ; grid-column-end: 4;  }  
+  #graph-item2{
+  grid-column-start:1 ; grid-column-end: 4; }
+}
+
+#graph-item2{
+  grid-column-start:1 ;
+  grid-column-end: 3;
 }
 
 #graph-item1, #graph-item3{
   grid-column-start:1 ;
   grid-column-end: 4;
 }
-#graph-item2{
-  grid-column-start:1 ;
-  grid-column-end: 3;
+
+@media only screen and (max-width: 750px) {
+  #graph-item2{
+  grid-column-start:1 ; grid-column-end: 4; }
 }
 
 
