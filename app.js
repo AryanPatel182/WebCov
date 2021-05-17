@@ -2,11 +2,14 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require( 'dotenv' ).config();
+const cors = require('cors');
 const blogRoutes = require('./routes/blogroutes');
 
 // console.log(process.env);
 
 const app = express();
+
+app.use(cors());
 
 const dbURI = process.env.MONGOODE_URL;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -22,11 +25,11 @@ app.use(morgan('dev'));
 
 console.log("Listening");
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://web-cov.herokuapp.com"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", *); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 
 
