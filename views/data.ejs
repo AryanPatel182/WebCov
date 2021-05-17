@@ -328,7 +328,7 @@
 
         async function getData3() {
             // const response = await fetch('ZonAnn.Ts+dSST.csv');
-            const response = await fetch('http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv');
+            const response = await fetch('https://cors-anywhere.herokuapp.com/http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv');
             const data = await response.text();
             const date = [];
             const doses = [];
@@ -384,7 +384,7 @@
 
         async function getData4() {
             // const response = await fetch('ZonAnn.Ts+dSST.csv');
-            const response = await fetch('http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv');
+            const response = await fetch('https://cors-anywhere.herokuapp.com/http://api.covid19india.org/csv/latest/vaccine_doses_statewise.csv');
             const data = await response.text();
             const state = [];
             const doses = [];
@@ -435,7 +435,7 @@
 
         async function getDataPi() {
             // const response = await fetch('ZonAnn.Ts+dSST.csv');
-            const response = await fetch('http://api.covid19india.org/csv/latest/cowin_vaccine_data_statewise.csv');
+            const response = await fetch('https://cors-anywhere.herokuapp.com/http://api.covid19india.org/csv/latest/cowin_vaccine_data_statewise.csv');
             const data = await response.text();
             const male = [];
             const female = [];
