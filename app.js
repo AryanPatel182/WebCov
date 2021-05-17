@@ -2,14 +2,14 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 require( 'dotenv' ).config();
-const cors = require('cors');
+// const cors = require('cors');
 const blogRoutes = require('./routes/blogroutes');
 
 // console.log(process.env);
 
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 
 const dbURI = process.env.MONGOODE_URL;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
