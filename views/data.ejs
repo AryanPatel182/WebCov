@@ -407,7 +407,9 @@
         async function setupPi() {
             const ctxPi = document.getElementById('myChartPi').getContext('2d');
             const CovCaseINPi = await getDataPi();
-
+            console.log(CovCaseINPi.male);
+            console.log(CovCaseINPi.female);
+            console.log(CovCaseINPi.other);
             const myChart = new Chart(ctxPi, {
                 type: 'doughnut',
                 data: {
@@ -450,14 +452,29 @@
             //         doses.push(cols[cols.length - 1]);
 
             // });
+            var today = new Date();
+            var dd = String(today.getDate() - 2).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
 
+            today = dd + '/' + mm + '/' + yyyy;
+            console.log(today);
             for (let i = 0; i < rows.length; i++) {
                 const cols = rows[i].split(',');
-                if (cols[1] != "India" || cols[2] == " ") {
-                    // console.log(cols);
-                    male.push(rows[i - 2].split(',')[7]);
-                    female.push(rows[i - 2].split(',')[8]);
-                    other.push(rows[i - 2].split(',')[9]);
+                // if (cols[1] != "India" || cols[2] == " ") {
+                //     console.log(cols);
+                //     male.push(rows[i - 1].split(',')[7]);
+                //     female.push(rows[i - 1].split(',')[8]);
+                //     other.push(rows[i - 1].split(',')[9]);
+                //     break;
+                // }
+                            
+                if (cols[0] === today) {   
+                    console.log(cols[0]);
+                    console.log(today);
+                    male.push(rows[i].split(',')[7]);
+                    female.push(rows[i].split(',')[8]);
+                    other.push(rows[i].split(',')[9]);
                     break;
                 }
 
