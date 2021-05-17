@@ -291,7 +291,8 @@ footer{
   padding: 10px;
 }
 @media only screen and (max-width: 536px) {
-  .graph-container{width: 536px; grid-template-columns: 1fr ;}
+  .graph-container{width: 536px; }
+    /* grid-template-columns: 1fr ;} */
   
 }
 
@@ -300,8 +301,8 @@ footer{
   /* background-color: #fff; */
   border-radius: 10px;
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
-  width: 90%;
-  padding: 20px;
+  width: 100%;
+  padding: 20px 0 20px 0;
   overflow: hidden;
   /* font-size: 15px; */
   text-align: center;
@@ -315,8 +316,8 @@ footer{
   transform: scale(1.02);
   box-shadow: 0 2px 5px #ccc;
 }
-@media only screen and (max-width: 536px) {
-  .graph-item{width: 70%;grid-column-start: 1 ; grid-column-start: 1;  }
+@media only screen and (max-width: 750px) {
+  .graph-item{width: 80%;grid-column-start: 1 ; grid-column-end: 4;  }
 }
 
 #graph-item1, #graph-item3{
@@ -389,6 +390,10 @@ footer{
   text-align: center;
   margin: auto;
   width: 536px;
+}
+
+@media only screen and (max-width: 536px) {
+  .follow{width: 536px }
 }
 
 html{
