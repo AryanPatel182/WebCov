@@ -313,8 +313,9 @@ footer{
 
 }
 .graph-item:hover{
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow: 0 2px 5px #ccc;
+  /* border: 2px solid rgb(165, 165, 165); */
 }
 
 @media only screen and (max-width: 750px) {
